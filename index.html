@@ -1,0 +1,82 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>ㄅㄆㄇ學習樂園</title><style>*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;background:linear-gradient(180deg,#fff7d6,#e9f7ff);color:#344054;touch-action:manipulation}button{font:inherit;border:0;cursor:pointer}.app{min-height:100vh;padding:18px;max-width:900px;margin:auto}header{display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:24px;padding:14px 18px;box-shadow:0 6px 20px #0001}.logo{font-size:24px;font-weight:900}.stars{background:#fff2a8;border-radius:999px;padding:8px 14px;font-weight:900}h1{font-size:34px;text-align:center;margin:28px 0 8px}.sub{text-align:center;color:#667085;margin-bottom:24px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{background:#fff;border-radius:28px;padding:22px;text-align:center;box-shadow:0 8px 24px #0001;min-height:150px}.card:active{transform:scale(.97)}.emoji{font-size:52px}.card h2{margin:8px 0 4px}.card p{margin:0;color:#667085}.screen{display:none}.screen.active{display:block}.top{display:flex;align-items:center;gap:10px;margin-bottom:16px}.back{background:#fff;border-radius:15px;padding:9px 14px}.panel{background:#fff;border-radius:28px;padding:20px;box-shadow:0 8px 24px #0001}.zhuyin{font-size:100px;font-weight:900;text-align:center;margin:12px}.action{display:inline-block;background:#ffcf4a;padding:13px 22px;border-radius:18px;font-weight:900;margin:6px}#trace{width:100%;height:360px;border-radius:22px;background:#fafafa;border:3px dashed #d0d5dd;touch-action:none}.trace-wrap{position:relative}.guide{position:absolute;z-index:0;inset:0;display:flex;align-items:center;justify-content:center;font-size:230px;font-weight:900;color:#cfd6e2;opacity:.52;pointer-events:none}.trace-wrap canvas{position:relative;z-index:1;background:transparent}.choice{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}.choice button{background:#f4f7fb;border-radius:22px;padding:24px;font-size:48px;font-weight:900}.feedback{text-align:center;font-size:24px;font-weight:900;min-height:36px;margin:12px}.battle{overflow:hidden}.battle-head{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;background:#f7f8fa;border-radius:18px;padding:10px 12px;font-size:15px}.arena{display:flex;align-items:center;justify-content:center;gap:28px;padding:18px 4px 8px}.hero,.monster{text-align:center;min-width:110px}.hero-face,.monster-face{font-size:76px;line-height:1;transition:transform .2s}.hp{height:13px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin:8px auto 5px;width:105px}.hp i{display:block;height:100%;width:100%;background:#55b96b;border-radius:99px;transition:width .35s}.monster-hp i{background:#ef6a6a}.vs{font-size:30px}.question{text-align:center;background:#fff8d6;border-radius:20px;padding:14px;font-size:20px;font-weight:900}.battle .choice button{font-size:40px;padding:18px;background:#eef5ff;box-shadow:inset 0 -4px #dbe6f5}.shake{animation:shake .35s}.battle-result{min-height:34px;text-align:center;font-size:23px;font-weight:900}@keyframes shake{25%{transform:translateX(-12px)}50%{transform:translateX(12px)}75%{transform:translateX(-7px)}}
+
+.battle .arena{position:relative;min-height:185px;overflow:hidden;background:linear-gradient(180deg,#eef9ff,#fff);border-radius:24px;margin-top:12px}
+.hero,.monster{position:relative;z-index:2}.hero-face,.monster-face{font-size:82px}
+.hero.attack{animation:heroAttack .48s ease}.monster.hit{animation:monsterHit .45s ease}.monster.attack{animation:monsterAttack .5s ease}
+.projectile{position:absolute;z-index:4;font-size:38px;left:34%;top:58%;pointer-events:none;animation:projectileFly .45s ease forwards}
+.fireball{position:absolute;z-index:4;font-size:38px;right:34%;top:58%;pointer-events:none;animation:fireballFly .45s ease forwards}
+.flash{animation:flash .28s ease}
+.levelup{animation:levelUp .7s ease}
+@keyframes heroAttack{0%{transform:translateX(0)}45%{transform:translateX(70px) scale(1.12)}100%{transform:translateX(0)}}
+@keyframes monsterAttack{0%{transform:translateX(0)}45%{transform:translateX(-70px) scale(1.12)}100%{transform:translateX(0)}}
+@keyframes monsterHit{0%{transform:translateX(0) rotate(0)}25%{transform:translateX(14px) rotate(8deg)}50%{transform:translateX(-14px) rotate(-8deg)}100%{transform:translateX(0)}}
+@keyframes projectileFly{0%{left:35%;opacity:1}100%{left:67%;opacity:0;transform:scale(1.5)}}
+@keyframes fireballFly{0%{right:35%;opacity:1}100%{right:67%;opacity:0;transform:scale(1.5)}}
+@keyframes flash{50%{filter:brightness(1.8)}}
+@keyframes levelUp{50%{transform:scale(1.35)}}
+
+
+.match-info{text-align:center;background:#fff8d6;border-radius:18px;padding:12px;margin-bottom:14px;font-size:18px}
+.match-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:650px;margin:auto}
+.match-card{aspect-ratio:1/1;border-radius:18px;background:#eef5ff;box-shadow:inset 0 -4px #dbe6f5;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:900;transform-style:preserve-3d;transition:.2s;user-select:none}
+.match-card:active{transform:scale(.95)}
+.match-card.flipped{background:#fff;box-shadow:0 4px 12px #00000012}
+.match-card.matched{background:#e6f8df;box-shadow:inset 0 0 0 3px #8fd17a}
+.match-card.wrong{animation:shake .3s}
+@media(max-width:520px){.match-grid{gap:8px}.match-card{font-size:30px;border-radius:14px}}
+
+@media(max-width:520px){h1{font-size:29px}.card{padding:16px;min-height:135px}.emoji{font-size:44px}#trace{height:300px}.guide{font-size:190px}}</style></head><body><div class="app"><header><div class="logo">🌈 ㄅㄆㄇ學習樂園</div><div class="stars">⭐ <span id="stars">0</span></div></header><section id="home" class="screen active"><h1>一起玩、一起學注音！</h1><div class="sub">適合 iPad 手指或 Apple Pencil 操作</div><div class="grid"><div class="card" onclick="openScreen('traceScreen')"><div class="emoji">✏️</div><h2>小小寫字家</h2><p>跟著虛線寫注音</p></div><div class="card" onclick="openBattle()"><div class="emoji">⚔️</div><h2>注音怪獸大戰</h2><p>答題攻擊怪獸、連勝拿星星</p></div><div class="card" onclick="openMatch()"><div class="emoji">🧩</div><h2>注音連連看</h2><p>把注音和圖片配成一對</p></div><div class="card" onclick="openScreen('balloonScreen');newQuiz()"><div class="emoji">🎈</div><h2>氣球派對</h2><p>找到正確注音</p></div><div class="card" onclick="speak('ㄅㄆㄇ')"><div class="emoji">🔊</div><h2>聽一聽</h2><p>點我聽注音</p></div></div></section><section id="matchScreen" class="screen">
+<div class="top"><button class="back" onclick="openScreen('home')">← 回首頁</button><b>🧩 注音連連看</b></div>
+<div class="panel">
+<div class="match-info">找到相同的一對：<b id="matchPairs">0</b>/6　 ⭐ <b id="matchScore">0</b></div>
+<div class="match-grid" id="matchGrid"></div>
+<div class="feedback" id="matchMsg"></div>
+<button class="action" onclick="openMatch()">🔄 重新開始</button>
+</div>
+</section>
+
+<section id="traceScreen" class="screen"><div class="top"><button class="back" onclick="openScreen('home')">← 回首頁</button><b>✏️ 小小寫字家</b></div><div class="panel"><div class="zhuyin" id="traceChar">ㄅ</div><div class="trace-wrap"><div class="guide" id="guide">ㄅ</div><canvas id="trace"></canvas></div><div style="text-align:center"><button class="action" onclick="speak(currentChar)">🔊 聽發音</button><button class="action" onclick="clearCanvas()">🔄 重寫</button><button class="action" onclick="nextTrace()">⭐ 完成</button></div><div class="feedback" id="traceMsg"></div></div></section><section id="quizScreen" class="screen"><div class="top"><button class="back" onclick="openScreen('home')">← 回首頁</button><b>⚔️ 注音怪獸大戰</b></div><div class="panel battle"><div class="battle-head"><div>🏆 連勝 <b id="combo">0</b></div><div>❤️ 生命 <b id="lives">3</b></div><div>👾 第 <b id="round">1</b>/10 關</div><div>⚡ 攻擊會隨連勝變強</div></div><div class="arena"><div class="hero"><div class="hero-face">🦸</div><div class="hp"><i id="heroHp"></i></div><small>小勇者</small></div><div class="vs">⚡</div><div class="monster"><div id="monsterFace" class="monster-face">👹</div><div class="hp monster-hp"><i id="monsterHp"></i></div><small id="monsterName">注音怪</small></div></div><div class="question"><div>👂 聽清楚！怪獸怕哪個注音？</div><button class="action" onclick="speak(quizAnswer)">🔊 再聽一次</button></div><div class="choice" id="choices"></div><div class="feedback" id="quizMsg"></div><div id="battleResult" class="battle-result"></div></div></section><section id="balloonScreen" class="screen"><div class="top"><button class="back" onclick="openScreen('home')">← 回首頁</button><b>🎈 氣球派對</b></div><div class="panel"><div class="sub">找到聽到的注音氣球</div><div class="zhuyin">🎈</div><div style="text-align:center"><button class="action" onclick="speak(quizAnswer)">🔊 聽一聽</button></div><div class="choice" id="balloons"></div><div class="feedback" id="balloonMsg"></div></div></section></div><script>const chars=["ㄅ","ㄆ","ㄇ","ㄈ","ㄉ","ㄊ","ㄋ","ㄌ","ㄍ","ㄎ","ㄏ","ㄐ","ㄑ","ㄒ","ㄓ","ㄔ","ㄕ","ㄖ","ㄗ","ㄘ","ㄙ"];let stars=0,currentChar="ㄅ",quizAnswer="ㄅ";const starsEl=document.getElementById("stars");function openScreen(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");if(id==="traceScreen"){resizeCanvas();showTrace(currentChar)}}function addStar(){stars++;starsEl.textContent=stars}function speak(t){if("speechSynthesis"in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang="zh-TW";u.rate=.65;speechSynthesis.speak(u)}}function showTrace(c){currentChar=c;document.getElementById("traceChar").textContent=c;document.getElementById("guide").textContent=c;clearCanvas();speak(c)}function nextTrace(){addStar();document.getElementById("traceMsg").textContent="🎉 太棒了！得到 1 顆星！";setTimeout(()=>{let i=chars.indexOf(currentChar);showTrace(chars[(i+1)%chars.length]);document.getElementById("traceMsg").textContent=""},700)}function clearCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height)}let battleRound=1,battleLives=3,battleCombo=0,monsterHP=100,heroHP=100;
+const monsters=[["👹","紅眼怪"],["👾","電波怪"],["🐲","注音龍"],["🦖","暴龍怪"],["🤖","機器怪"]];
+function resetBattle(){battleRound=1;battleLives=3;battleCombo=0;monsterHP=100;heroHP=100;document.getElementById("battleResult").textContent="";updateBattle();newQuiz()}
+function updateBattle(){[["combo",battleCombo],["lives",battleLives],["round",battleRound]].forEach(x=>{let e=document.getElementById(x[0]);if(e)e.textContent=x[1]});let h=document.getElementById("heroHp"),m=document.getElementById("monsterHp");if(h)h.style.width=Math.max(0,heroHP)+"%";if(m)m.style.width=Math.max(0,monsterHP)+"%";let mon=monsters[(battleRound-1)%monsters.length];document.getElementById("monsterFace").textContent=mon[0];document.getElementById("monsterName").textContent=mon[1]}
+function openBattle(){openScreen("quizScreen");resetBattle()}
+function newQuiz(){quizAnswer=chars[Math.floor(Math.random()*chars.length)];let pool=[quizAnswer];while(pool.length<4){let c=chars[Math.floor(Math.random()*chars.length)];if(!pool.includes(c))pool.push(c)}pool.sort(()=>Math.random()-.5);["choices","balloons"].forEach(id=>{let box=document.getElementById(id);if(!box)return;box.innerHTML="";pool.forEach(c=>{let b=document.createElement("button");b.textContent=c;b.onclick=()=>answer(c,id);box.appendChild(b)})});setTimeout(()=>speak(quizAnswer),250)}
+function answer(c,id){if(id!=="choices"){let msg=document.getElementById("balloonMsg");if(c===quizAnswer){addStar();msg.textContent="🎉 答對了！+1 顆星";setTimeout(()=>{msg.textContent="";newQuiz()},650)}else{msg.textContent="💪 再試一次！";speak(quizAnswer)}return}let msg=document.getElementById("quizMsg");if(c===quizAnswer){battleCombo++;let damage=Math.min(40,18+battleCombo*3);monsterHP=Math.max(0,monsterHP-damage);addStar();msg.textContent="💥 答對！你打出 "+damage+" 傷害！";let mf=document.getElementById("monsterFace");mf.classList.remove("shake");void mf.offsetWidth;mf.classList.add("shake");updateBattle();if(monsterHP<=0){addStar(3);document.getElementById("battleResult").textContent="🏆 怪獸被打倒！額外 +3 顆星！";setTimeout(()=>{if(battleRound>=10){document.getElementById("battleResult").textContent="🎉 闖關成功！10 關全部完成！";msg.textContent="🌟 小勇者今天超厲害！"}else{battleRound++;monsterHP=100;heroHP=100;msg.textContent="⚔️ 下一隻怪獸出現！";document.getElementById("battleResult").textContent="";updateBattle();setTimeout(newQuiz,450)}},850)}else{setTimeout(()=>{msg.textContent="👊 怪獸反擊！下一題！";newQuiz()},500)}}else{battleCombo=0;battleLives--;heroHP=Math.max(0,heroHP-30);msg.textContent="😵 答錯！怪獸反擊 -30 生命";let hf=document.querySelector(".hero-face");hf.classList.remove("shake");void hf.offsetWidth;hf.classList.add("shake");updateBattle();if(battleLives<=0){document.getElementById("battleResult").textContent="💪 再挑戰一次！";msg.textContent="生命用完了，聽清楚再來一次！";setTimeout(resetBattle,1000)}else{setTimeout(()=>speak(quizAnswer),400)}}}
+
+const matchPairsData=[
+ ["ㄅ","🍌"],["ㄆ","🍍"],["ㄇ","🐱"],["ㄈ","🍞"],["ㄉ","🐟"],["ㄊ","🐰"]
+];
+let matchFirst=null,matchBusy=false,matchFound=0,matchScore=0;
+function openMatch(){
+ openScreen("matchScreen");matchFirst=null;matchBusy=false;matchFound=0;matchScore=0;
+ document.getElementById("matchPairs").textContent="0";document.getElementById("matchScore").textContent="0";document.getElementById("matchMsg").textContent="";
+ let cards=[];matchPairsData.forEach((pair,i)=>{cards.push({v:pair[0],p:i,t:"z"});cards.push({v:pair[1],p:i,t:"p"})});
+ cards.sort(()=>Math.random()-.5);
+ const grid=document.getElementById("matchGrid");grid.innerHTML="";
+ cards.forEach((c,i)=>{
+   const b=document.createElement("button");b.className="match-card";b.dataset.p=c.p;b.dataset.t=c.t;b.dataset.v=c.v;b.textContent="❓";
+   b.onclick=()=>flipMatch(b);grid.appendChild(b);
+ });
+}
+function flipMatch(card){
+ if(matchBusy||card.classList.contains("flipped")||card.classList.contains("matched"))return;
+ card.classList.add("flipped");card.textContent=card.dataset.v;
+ if(card.dataset.t==="z")speak(card.dataset.v);
+ if(!matchFirst){matchFirst=card;return}
+ matchBusy=true;
+ if(matchFirst.dataset.p===card.dataset.p && matchFirst.dataset.t!==card.dataset.t){
+   setTimeout(()=>{
+     matchFirst.classList.add("matched");card.classList.add("matched");
+     matchFound++;matchScore+=10;addStar();
+     document.getElementById("matchPairs").textContent=matchFound;document.getElementById("matchScore").textContent=matchScore;
+     document.getElementById("matchMsg").textContent="🎉 配對成功！+1 顆星";
+     matchFirst=null;matchBusy=false;
+     if(matchFound===6){matchScore+=30;addStar(3);document.getElementById("matchScore").textContent=matchScore;document.getElementById("matchMsg").textContent="🏆 全部配對成功！獎勵 3 顆星！"}
+   },220);
+ }else{
+   matchFirst.classList.add("wrong");card.classList.add("wrong");
+   setTimeout(()=>{matchFirst.classList.remove("flipped","wrong");matchFirst.textContent="❓";card.classList.remove("flipped","wrong");card.textContent="❓";matchFirst=null;matchBusy=false;document.getElementById("matchMsg").textContent="💪 再找找看！"},650);
+ }
+}
+
+</script></body></html>
